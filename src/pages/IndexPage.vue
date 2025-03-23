@@ -1,13 +1,11 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+    <!-- Sections will be added here -->
   </q-page>
 </template>
 
 <script setup>
-//
+// Component logic will be added later
 </script>
+
+<style scoped></style>
