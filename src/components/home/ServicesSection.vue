@@ -95,6 +95,22 @@
 import ServiceModal from '../modals/ServiceModal.vue'
 import { ref } from 'vue'
 
+// Import service images
+import serviceImage1 from '../../assets/images/products/services-image1.png'
+import serviceImage2 from '../../assets/images/products/services-image2.png'
+import serviceImage3 from '../../assets/images/products/services-image3.png'
+import serviceImage4 from '../../assets/images/products/services-image4.png'
+import serviceImage5 from '../../assets/images/products/services-image5.png'
+import serviceImage6 from '../../assets/images/products/services-image6.png'
+
+// Import service icons
+import serviceIcon1 from '../../assets/images/icons/services-icon1.png'
+import serviceIcon2 from '../../assets/images/icons/services-icon2.png'
+import serviceIcon3 from '../../assets/images/icons/services-icon3.png'
+import serviceIcon4 from '../../assets/images/icons/services-icon4.png'
+import serviceIcon5 from '../../assets/images/icons/services-icon5.png'
+import serviceIcon6 from '../../assets/images/icons/services-icon6.png'
+
 const selectedService = ref(null)
 const showModal = ref(false)
 const slide = ref(1)
@@ -107,8 +123,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our state-of-the-art plastic injection molding services combine precision engineering with decades of expertise. We specialize in producing high-quality plastic components for various industries, with a particular focus on military and medical applications.',
-    image: 'images/products/services-image1.png',
-    icon: 'images/icons/services-icon1.png',
+    image: serviceImage1,
+    icon: serviceIcon1,
     features: [
       'Advanced injection molding machinery',
       'Precision tooling and quality control',
@@ -138,8 +154,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our tooling and fabrication services provide comprehensive solutions for custom manufacturing needs. We utilize advanced technology and skilled craftsmanship to create precise tools and components.',
-    image: 'images/products/services-image2.png',
-    icon: 'images/icons/services-icon2.png',
+    image: serviceImage2,
+    icon: serviceIcon2,
     features: [
       'Custom tool design and manufacturing',
       'Precision machining',
@@ -169,8 +185,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our assembly services offer complete product assembly solutions, from simple components to complex systems. We ensure precise assembly and quality control at every step.',
-    image: 'images/products/services-image3.png',
-    icon: 'images/icons/services-icon3.png',
+    image: serviceImage3,
+    icon: serviceIcon3,
     features: [
       'Automated and manual assembly',
       'Quality control procedures',
@@ -200,8 +216,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our water injection services provide specialized solutions for complex plastic components. We utilize advanced water injection technology to create hollow parts with precise dimensions.',
-    image: 'images/products/services-image4.png',
-    icon: 'images/icons/services-icon4.png',
+    image: serviceImage4,
+    icon: serviceIcon4,
     features: [
       'Advanced water injection technology',
       'Precision control systems',
@@ -231,8 +247,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our third-party logistics services provide comprehensive supply chain solutions, ensuring efficient storage, handling, and distribution of your products.',
-    image: 'images/products/services-image5.png',
-    icon: 'images/icons/services-icon5.png',
+    image: serviceImage5,
+    icon: serviceIcon5,
     features: [
       'Warehouse management',
       'Inventory control',
@@ -262,8 +278,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our program management services ensure successful project execution from concept to completion. We provide comprehensive oversight and coordination of all project aspects.',
-    image: 'images/products/services-image6.png',
-    icon: 'images/icons/services-icon6.png',
+    image: serviceImage6,
+    icon: serviceIcon6,
     features: [
       'Project planning and coordination',
       'Resource management',
