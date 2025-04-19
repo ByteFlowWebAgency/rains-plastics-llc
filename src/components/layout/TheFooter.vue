@@ -51,7 +51,7 @@
             </div>
             <div class="info-item q-mb-md">
               <div class="info-label q-mb-sm">Email:</div>
-              <div>info@Rainsplastics.com</div>
+              <div>trains@neo.rr.com</div>
             </div>
             <div class="info-item">
               <div class="info-label q-mb-sm">Phone:</div>
