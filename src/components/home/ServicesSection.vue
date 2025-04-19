@@ -1,5 +1,5 @@
 <template>
-  <section class="services-section q-py-xl">
+  <section id="services-section" class="services-section q-py-xl">
     <div class="container">
       <div
         class="section-header text-center q-mb-xl"
