@@ -49,8 +49,6 @@ export default defineConfig((/* ctx */) => {
       // rawDefine: {}
 
       // extendViteConf (viteConf) {},
-      // viteVuePluginOptions: {},
-
       vitePlugins: [
         [
           'vite-plugin-checker',
@@ -63,6 +61,18 @@ export default defineConfig((/* ctx */) => {
           { server: false },
         ],
       ],
+      viteVuePluginOptions: {
+        template: {
+          transformAssetUrls: {
+            img: ['src', 'data-src'],
+            video: ['src', 'poster'],
+            source: ['src'],
+            object: ['data'],
+            'q-img': ['src'],
+            'q-video': ['src', 'poster'],
+          },
+        },
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
