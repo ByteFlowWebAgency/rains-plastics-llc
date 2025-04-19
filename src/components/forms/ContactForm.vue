@@ -61,7 +61,6 @@
       </div>
     </q-form>
 
-    <!-- Privacy Policy Modal -->
     <q-dialog v-model="showPrivacyPolicy" persistent>
       <q-card style="min-width: 350px; max-width: 600px">
         <q-card-section class="row items-center q-pb-none">
@@ -150,17 +149,14 @@ const form = ref({
 })
 
 const resetForm = async () => {
-  // First reset the form data
   form.value = {
     name: '',
     email: '',
     message: '',
   }
 
-  // Wait for the next DOM update cycle
   await nextTick()
 
-  // Then reset validation states
   if (contactForm.value) {
     contactForm.value.resetValidation()
   }
@@ -174,9 +170,8 @@ const onSubmit = async () => {
 
     // Determine the correct API URL based on environment
     const baseUrl = import.meta.env.PROD ? 'https://rainsplastics.com' : ''
-    const apiUrl = `${baseUrl}/contact`
+    const apiUrl = `${baseUrl}/api/contact`
 
-    // Send form data to API
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
