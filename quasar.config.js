@@ -37,25 +37,18 @@ export default defineConfig((/* ctx */) => {
         node: 'node20',
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
-      // vueRouterBase,
-      // vueDevtools,
-      // vueOptionsAPI: false,
+      vueRouterMode: 'history',
+      publicPath: '/',
+      distDir: 'dist/spa',
+      ignorePublicFolder: true,
+      minify: true,
+      polyfillModulePreload: true,
 
-      // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-
-      // publicPath: '/',
       // analyze: true,
       // env: {},
       // rawDefine: {}
-      // ignorePublicFolder: true,
-      // minify: false,
-      // polyfillModulePreload: true,
-      // distDir
 
       // extendViteConf (viteConf) {},
-      // viteVuePluginOptions: {},
-
       vitePlugins: [
         [
           'vite-plugin-checker',
@@ -68,6 +61,18 @@ export default defineConfig((/* ctx */) => {
           { server: false },
         ],
       ],
+      viteVuePluginOptions: {
+        template: {
+          transformAssetUrls: {
+            img: ['src', 'data-src'],
+            video: ['src', 'poster'],
+            source: ['src'],
+            object: ['data'],
+            'q-img': ['src'],
+            'q-video': ['src', 'poster'],
+          },
+        },
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
