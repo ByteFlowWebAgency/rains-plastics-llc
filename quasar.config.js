@@ -37,8 +37,11 @@ export default defineConfig((/* ctx */) => {
         node: 'node20',
       },
 
-      vueRouterMode: 'history', // Changed from 'hash' to 'history'
-      publicPath: '/', // Ensure this is set to root
+      vueRouterMode: 'history',
+      publicPath: '/',
+      distDir: 'dist/spa',
+      ignorePublicFolder: true,
+      minify: true,
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -48,10 +51,7 @@ export default defineConfig((/* ctx */) => {
       // analyze: true,
       // env: {},
       // rawDefine: {}
-      // ignorePublicFolder: true,
-      // minify: false,
       // polyfillModulePreload: true,
-      // distDir
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},

@@ -1,0 +1,15 @@
+node_modules
+.git
+.vscode
+.quasar
+dist
+*.log
+.eslintcache
+.prettierrc
+.eslintrc.js
+.eslint.config.js
+src
+public
+quasar.config.js
+README.md
+.gitignore 
