@@ -85,7 +85,7 @@ const navigateTo = async (path, section = null) => {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background: url('../../assets/images/backgrounds/hero-banner.png') no-repeat center center;
+  background: url('../../assets/images/backgrounds/homepage-banner.gif') no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -95,7 +95,8 @@ const navigateTo = async (path, section = null) => {
   @media (max-width: 1023px) {
     min-height: 100vh;
     padding: 2rem 1rem;
-    background: url('../../assets/images/backgrounds/hero-banner.png') no-repeat center center fixed;
+    background: url('../../assets/images/backgrounds/homepage-banner.gif') no-repeat center center
+      fixed;
     background-size: cover;
     display: flex;
     align-items: center;

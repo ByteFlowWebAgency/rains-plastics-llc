@@ -5,7 +5,7 @@
       <div class="container row justify-between items-center">
         <div class="row items-center">
           <q-icon name="mail" class="q-mr-sm" />
-          <span class="text-caption">info@rainsplastics.inc</span>
+          <span class="text-caption">trains@neo.rr.com</span>
         </div>
         <div class="row items-center">
           <q-icon name="phone" class="q-mr-sm" />
