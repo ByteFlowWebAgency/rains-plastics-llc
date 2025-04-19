@@ -107,8 +107,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our state-of-the-art plastic injection molding services combine precision engineering with decades of expertise. We specialize in producing high-quality plastic components for various industries, with a particular focus on military and medical applications.',
-    image: '/src/assets/images/products/services-image1.png',
-    icon: '/src/assets/images/icons/services-icon1.png',
+    image: 'images/products/services-image1.png',
+    icon: 'images/icons/services-icon1.png',
     features: [
       'Advanced injection molding machinery',
       'Precision tooling and quality control',
@@ -138,8 +138,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our tooling and fabrication services provide comprehensive solutions for custom manufacturing needs. We utilize advanced technology and skilled craftsmanship to create precise tools and components.',
-    image: '/src/assets/images/products/services-image2.png',
-    icon: '/src/assets/images/icons/services-icon2.png',
+    image: 'images/products/services-image2.png',
+    icon: 'images/icons/services-icon2.png',
     features: [
       'Custom tool design and manufacturing',
       'Precision machining',
@@ -169,8 +169,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our assembly services offer complete product assembly solutions, from simple components to complex systems. We ensure precise assembly and quality control at every step.',
-    image: '/src/assets/images/products/services-image3.png',
-    icon: '/src/assets/images/icons/services-icon3.png',
+    image: 'images/products/services-image3.png',
+    icon: 'images/icons/services-icon3.png',
     features: [
       'Automated and manual assembly',
       'Quality control procedures',
@@ -199,29 +199,29 @@ const services = [
     shortDescription:
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
-      'Our water injection technology enables the creation of hollow or partially hollow plastic parts with superior quality and consistency. This innovative process offers unique advantages for specific applications.',
-    image: '/src/assets/images/products/services-image4.png',
-    icon: '/src/assets/images/icons/services-icon4.png',
+      'Our water injection services provide specialized solutions for complex plastic components. We utilize advanced water injection technology to create hollow parts with precise dimensions.',
+    image: 'images/products/services-image4.png',
+    icon: 'images/icons/services-icon4.png',
     features: [
       'Advanced water injection technology',
-      'Hollow part creation',
-      'Weight reduction capability',
-      'Material optimization',
-      'Complex geometry handling',
+      'Precision control systems',
+      'Custom tooling solutions',
+      'Quality monitoring',
+      'High-volume production',
     ],
     applications: [
-      'Fluid handling components',
-      'Automotive parts',
-      'Industrial piping',
+      'Automotive components',
+      'Medical devices',
+      'Industrial parts',
       'Consumer products',
-      'Technical components',
+      'Specialized components',
     ],
     benefits: [
       'Reduced material usage',
-      'Lighter weight products',
-      'Improved cooling efficiency',
+      'Improved part strength',
       'Cost-effective production',
-      'Enhanced product performance',
+      'Design flexibility',
+      'Consistent quality',
     ],
   },
   {
