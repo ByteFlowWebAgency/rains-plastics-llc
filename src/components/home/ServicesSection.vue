@@ -231,8 +231,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our third-party logistics services provide comprehensive supply chain solutions, ensuring efficient storage, handling, and distribution of your products.',
-    image: '/src/assets/images/products/services-image5.png',
-    icon: '/src/assets/images/icons/services-icon5.png',
+    image: 'images/products/services-image5.png',
+    icon: 'images/icons/services-icon5.png',
     features: [
       'Warehouse management',
       'Inventory control',
@@ -262,8 +262,8 @@ const services = [
       'We have been injection molding for 40+ years, serving markets as military and medical devices...',
     description:
       'Our program management services ensure successful project execution from concept to completion. We provide comprehensive oversight and coordination of all project aspects.',
-    image: '/src/assets/images/products/services-image6.png',
-    icon: '/src/assets/images/icons/services-icon6.png',
+    image: 'images/products/services-image6.png',
+    icon: 'images/icons/services-icon6.png',
     features: [
       'Project planning and coordination',
       'Resource management',
