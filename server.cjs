@@ -35,6 +35,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({
     error: process.env.NODE_ENV === 'production' ? 'Something went wrong!' : err.message,
   })
+  next(err) // Pass error to default Express error handler
 })
 
 app.listen(port, () => {
