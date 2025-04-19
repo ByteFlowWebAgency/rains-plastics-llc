@@ -1,13 +1,25 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+  <q-page>
+    <HeroSection />
+    <AboutSection />
+    <ServicesSection />
+    <ShowcaseSection />
+    <ProductHighlightsSection />
+    <ContactSection />
   </q-page>
 </template>
 
 <script setup>
-//
+import HeroSection from '../components/home/HeroSection.vue'
+import AboutSection from '../components/home/AboutSection.vue'
+import ServicesSection from '../components/home/ServicesSection.vue'
+import ShowcaseSection from '../components/home/ShowcaseSection.vue'
+import ProductHighlightsSection from 'components/home/ProductHighlightsSection.vue'
+import ContactSection from '../components/home/ContactSection.vue'
 </script>
+
+<style lang="scss" scoped>
+.q-page {
+  min-height: unset;
+}
+</style>
