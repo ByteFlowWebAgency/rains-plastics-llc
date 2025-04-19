@@ -13,7 +13,8 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "start": "serve dist/spa -s --single",
-    "postinstall": "quasar prepare"
+    "vercel-build": "npm install && npm run build",
+    "vercel-dev": "npm install && npm run dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",

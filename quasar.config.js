@@ -42,16 +42,11 @@ export default defineConfig((/* ctx */) => {
       distDir: 'dist/spa',
       ignorePublicFolder: true,
       minify: true,
-      // vueRouterBase,
-      // vueDevtools,
-      // vueOptionsAPI: false,
-
-      // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
+      polyfillModulePreload: true,
 
       // analyze: true,
       // env: {},
       // rawDefine: {}
-      // polyfillModulePreload: true,
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
