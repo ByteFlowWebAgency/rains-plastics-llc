@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section q-py-xl">
+  <section id="contact-section" class="contact-section q-py-xl">
     <div class="container q-mx-auto">
       <div class="text-center q-mb-xl">
         <div class="section-header">

@@ -1,11 +1,11 @@
 <template>
-  <section class="hero-section">
+  <section id="hero-section" class="hero-section">
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="row items-center hero-content">
         <div class="col-12 col-md-6">
           <img
-            src="../../assets/images/backgrounds/machine-hero-img.jpg"
+            src="../../assets/images/backgrounds/machine-hero-img-removebg-preview.png"
             alt="Plastics Automation Machine"
             class="mobile-hero-image"
             v-motion
@@ -28,7 +28,7 @@
               <q-btn
                 label="Request a Custom Quote"
                 color="primary"
-                to="/contact"
+                @click="navigateTo('/', 'contact')"
                 no-caps
                 unelevated
                 class="custom-quote-btn"
@@ -45,7 +45,39 @@
 </template>
 
 <script setup>
-// No additional script needed
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+const scrollToSection = (sectionId) => {
+  setTimeout(() => {
+    const element = document.getElementById(sectionId + '-section')
+    if (element) {
+      const headerOffset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+  }, 100)
+}
+
+const navigateTo = async (path, section = null) => {
+  if (route.path !== path) {
+    await router.push(path)
+    await new Promise((resolve) => setTimeout(resolve, 100))
+  }
+
+  if (section) {
+    scrollToSection(section)
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
