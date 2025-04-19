@@ -1,5 +1,5 @@
 <template>
-  <section class="product-highlights-section">
+  <section id="products-section" class="product-highlights-section">
     <div class="container">
       <!-- Section Header -->
       <div

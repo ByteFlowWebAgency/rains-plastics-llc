@@ -1,5 +1,5 @@
 <template>
-  <section class="about-section q-py-xl">
+  <section id="about-section" class="about-section q-py-xl">
     <div class="container">
       <div class="row items-start q-col-gutter-xl">
         <div class="col-12 col-md-6">
@@ -41,7 +41,7 @@
               industry.
             </p>
             <q-btn
-              label="About us"
+              label="Learn More"
               color="primary"
               no-caps
               unelevated
@@ -56,19 +56,11 @@
   <about-modal v-model="showAboutModal" />
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 import AboutModal from 'components/modals/AboutModal.vue'
 
-export default {
-  components: {
-    AboutModal,
-  },
-  data() {
-    return {
-      showAboutModal: false,
-    }
-  },
-}
+const showAboutModal = ref(false)
 </script>
 
 <style lang="scss" scoped>
