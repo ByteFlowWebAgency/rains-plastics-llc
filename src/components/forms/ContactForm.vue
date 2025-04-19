@@ -172,9 +172,9 @@ const onSubmit = async () => {
 
     const validatedData = contactSchema.parse(form.value)
 
-    // The API URL will be handled by the proxy in development
-    // and by Vercel's routing in production
-    const apiUrl = '/api/contact'
+    // Determine the correct API URL based on environment
+    const baseUrl = import.meta.env.PROD ? 'https://rainsplastics.com' : ''
+    const apiUrl = `${baseUrl}/contact`
 
     // Send form data to API
     const response = await fetch(apiUrl, {
