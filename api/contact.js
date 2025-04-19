@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
-import { z } from 'zod'
+const nodemailer = require('nodemailer')
+const { z } = require('zod')
 
 // Email validation schema
 const contactSchema = z.object({
@@ -8,18 +8,28 @@ const contactSchema = z.object({
   message: z.string().min(1, 'Message is required'),
 })
 
-// Create transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.TRANSPORTER_EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-  secure: true,
-  tls: {
-    rejectUnauthorized: true,
-  },
-})
+// Create transporter outside request handler to reuse connection
+let transporter = null
+
+// Initialize transporter
+function createTransporter() {
+  if (!process.env.TRANSPORTER_EMAIL || !process.env.EMAIL_PASSWORD) {
+    console.error('Missing email configuration')
+    return null
+  }
+
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.TRANSPORTER_EMAIL,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+    secure: true,
+    tls: {
+      rejectUnauthorized: true,
+    },
+  })
+}
 
 // HTML email template
 const createEmailHTML = (data) => `
@@ -46,10 +56,10 @@ const createEmailHTML = (data) => `
   </div>
 `
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   console.log('API Route Handler Started')
   console.log('Request Method:', req.method)
-  console.log('Request Headers:', req.headers)
+  console.log('Environment:', process.env.NODE_ENV)
 
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true)
@@ -72,15 +82,31 @@ export default async function handler(req, res) {
   }
 
   try {
-    console.log('Environment Variables Check:')
-    console.log('TRANSPORTER_EMAIL exists:', !!process.env.TRANSPORTER_EMAIL)
-    console.log('EMAIL_PASSWORD exists:', !!process.env.EMAIL_PASSWORD)
-    console.log('BUSINESS_EMAIL exists:', !!process.env.BUSINESS_EMAIL)
+    // Check environment variables
+    if (
+      !process.env.TRANSPORTER_EMAIL ||
+      !process.env.EMAIL_PASSWORD ||
+      !process.env.BUSINESS_EMAIL
+    ) {
+      console.error('Missing required environment variables')
+      throw new Error('Email configuration is incomplete')
+    }
 
-    console.log('Received contact form submission:', req.body)
+    // Initialize transporter if not already created
+    if (!transporter) {
+      transporter = createTransporter()
+      if (!transporter) {
+        throw new Error('Failed to create email transporter')
+      }
+    }
 
+    // Validate request body exists
+    if (!req.body) {
+      throw new Error('No request body provided')
+    }
+
+    console.log('Validating form data:', req.body)
     const validatedData = contactSchema.parse(req.body)
-    console.log('Validation passed:', validatedData)
 
     const mailOptions = {
       from: process.env.TRANSPORTER_EMAIL,
@@ -90,9 +116,11 @@ export default async function handler(req, res) {
       replyTo: validatedData.email,
     }
 
-    console.log('Attempting to send email with options:', {
-      ...mailOptions,
-      html: '[HTML Content]', // Omit actual HTML for logging
+    console.log('Sending email with options:', {
+      from: mailOptions.from,
+      to: mailOptions.to,
+      subject: mailOptions.subject,
+      replyTo: mailOptions.replyTo,
     })
 
     const info = await transporter.sendMail(mailOptions)
@@ -107,6 +135,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: error.errors[0].message })
     }
 
+    // Handle specific nodemailer errors
     if (error.code === 'EAUTH') {
       console.error('Authentication error - check email credentials')
       return res.status(500).json({
@@ -124,8 +153,10 @@ export default async function handler(req, res) {
     }
 
     return res.status(500).json({
-      error: process.env.NODE_ENV === 'production' ? 'Failed to send email' : error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      error:
+        process.env.NODE_ENV === 'production'
+          ? 'Failed to send email. Please try again later.'
+          : error.message,
     })
   }
 }

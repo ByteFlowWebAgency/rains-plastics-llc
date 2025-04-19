@@ -4,7 +4,6 @@
   "description": "The Official Website of Rains Plastics LLC",
   "productName": "Rains Plastic Website",
   "author": "Tajohnson245 <tajohnson245@outlook.com>",
-  "type": "module",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
