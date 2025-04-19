@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
-import { z } from 'zod'
+const nodemailer = require('nodemailer')
+const { z } = require('zod')
 
 // Email validation schema
 const contactSchema = z.object({
@@ -46,7 +46,7 @@ const createEmailHTML = (data) => `
   </div>
 `
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -62,12 +62,16 @@ export default async function handler(req, res) {
     return
   }
 
+  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
   try {
+    console.log('Received contact form submission:', req.body)
+
     const validatedData = contactSchema.parse(req.body)
+    console.log('Validation passed:', validatedData)
 
     const mailOptions = {
       from: process.env.TRANSPORTER_EMAIL,
@@ -77,7 +81,8 @@ export default async function handler(req, res) {
       replyTo: validatedData.email,
     }
 
-    await transporter.sendMail(mailOptions)
+    const info = await transporter.sendMail(mailOptions)
+    console.log('Email sent successfully:', info.messageId)
 
     return res.status(200).json({ message: 'Email sent successfully' })
   } catch (error) {

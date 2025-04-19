@@ -169,7 +169,9 @@ const onSubmit = async () => {
     const validatedData = contactSchema.parse(form.value)
 
     // Determine the correct API URL based on environment
-    const baseUrl = import.meta.env.PROD ? 'https://rainsplastics.com' : ''
+    const baseUrl = import.meta.env.PROD
+      ? window.location.origin // This will automatically use the current domain (www or non-www)
+      : ''
     const apiUrl = `${baseUrl}/api/contact`
 
     const response = await fetch(apiUrl, {
