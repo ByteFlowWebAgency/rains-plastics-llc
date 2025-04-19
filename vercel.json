@@ -17,8 +17,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1",
-      "methods": ["GET", "POST", "OPTIONS"]
+      "dest": "/api/$1.js"
     },
     {
       "handle": "filesystem"

@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer')
-const { z } = require('zod')
+import nodemailer from 'nodemailer'
+import { z } from 'zod'
 
 // Email validation schema
 const contactSchema = z.object({
@@ -46,7 +46,11 @@ const createEmailHTML = (data) => `
   </div>
 `
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
+  console.log('API Route Handler Started')
+  console.log('Request Method:', req.method)
+  console.log('Request Headers:', req.headers)
+
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -68,6 +72,11 @@ module.exports = async (req, res) => {
   }
 
   try {
+    console.log('Environment Variables Check:')
+    console.log('TRANSPORTER_EMAIL exists:', !!process.env.TRANSPORTER_EMAIL)
+    console.log('EMAIL_PASSWORD exists:', !!process.env.EMAIL_PASSWORD)
+    console.log('BUSINESS_EMAIL exists:', !!process.env.BUSINESS_EMAIL)
+
     console.log('Received contact form submission:', req.body)
 
     const validatedData = contactSchema.parse(req.body)
@@ -81,12 +90,18 @@ module.exports = async (req, res) => {
       replyTo: validatedData.email,
     }
 
+    console.log('Attempting to send email with options:', {
+      ...mailOptions,
+      html: '[HTML Content]', // Omit actual HTML for logging
+    })
+
     const info = await transporter.sendMail(mailOptions)
     console.log('Email sent successfully:', info.messageId)
 
     return res.status(200).json({ message: 'Email sent successfully' })
   } catch (error) {
     console.error('Contact form error:', error)
+    console.error('Error stack:', error.stack)
 
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors[0].message })
@@ -94,16 +109,23 @@ module.exports = async (req, res) => {
 
     if (error.code === 'EAUTH') {
       console.error('Authentication error - check email credentials')
-      return res.status(500).json({ error: 'Email service authentication failed' })
+      return res.status(500).json({
+        error: 'Email service authentication failed',
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      })
     }
 
     if (error.code === 'ESOCKET') {
       console.error('Network error - check internet connection')
-      return res.status(500).json({ error: 'Network connection error' })
+      return res.status(500).json({
+        error: 'Network connection error',
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      })
     }
 
     return res.status(500).json({
       error: process.env.NODE_ENV === 'production' ? 'Failed to send email' : error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
     })
   }
 }
