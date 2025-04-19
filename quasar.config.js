@@ -37,14 +37,14 @@ export default defineConfig((/* ctx */) => {
         node: 'node20',
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // Changed from 'hash' to 'history'
+      publicPath: '/', // Ensure this is set to root
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '/',
       // analyze: true,
       // env: {},
       // rawDefine: {}
