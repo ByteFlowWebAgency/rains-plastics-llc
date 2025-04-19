@@ -1,4 +1,5 @@
 import { boot } from 'quasar/wrappers'
+import { MotionPlugin } from '@vueuse/motion'
 
 // Animation configurations
 const defaultScrollOptions = {
@@ -7,6 +8,9 @@ const defaultScrollOptions = {
 }
 
 export default boot(({ app }) => {
+  // Register the motion plugin
+  app.use(MotionPlugin)
+
   // Register global directives
   app.directive('scroll-fade', {
     mounted(el) {

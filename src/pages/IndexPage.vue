@@ -1,11 +1,25 @@
 <template>
-  <q-page class="flex flex-center">
-    <!-- Sections will be added here -->
+  <q-page>
+    <HeroSection />
+    <AboutSection />
+    <ServicesSection />
+    <ShowcaseSection />
+    <ProductHighlightsSection />
+    <ContactSection />
   </q-page>
 </template>
 
 <script setup>
-// Component logic will be added later
+import HeroSection from '../components/home/HeroSection.vue'
+import AboutSection from '../components/home/AboutSection.vue'
+import ServicesSection from '../components/home/ServicesSection.vue'
+import ShowcaseSection from '../components/home/ShowcaseSection.vue'
+import ProductHighlightsSection from 'components/home/ProductHighlightsSection.vue'
+import ContactSection from '../components/home/ContactSection.vue'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.q-page {
+  min-height: unset;
+}
+</style>
