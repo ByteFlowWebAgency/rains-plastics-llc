@@ -62,20 +62,17 @@ router.post('/', async (req, res) => {
   try {
     console.log('Received contact form submission:', req.body)
 
-    // Validate input
     const validatedData = contactSchema.parse(req.body)
     console.log('Validation passed:', validatedData)
 
-    // Email options
     const mailOptions = {
       from: process.env.TRANSPORTER_EMAIL,
       to: process.env.BUSINESS_EMAIL,
       subject: `New Contact Form Submission from ${validatedData.name}`,
       html: createEmailHTML(validatedData),
-      replyTo: validatedData.email, // Add reply-to header
+      replyTo: validatedData.email,
     }
 
-    // Send email
     const info = await transporter.sendMail(mailOptions)
     console.log('Email sent successfully:', info.messageId)
 
@@ -87,7 +84,6 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: error.errors[0].message })
     }
 
-    // Check for specific nodemailer errors
     if (error.code === 'EAUTH') {
       console.error('Authentication error - check email credentials')
       return res.status(500).json({ error: 'Email service authentication failed' })

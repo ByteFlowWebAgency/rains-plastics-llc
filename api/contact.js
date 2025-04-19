@@ -15,9 +15,9 @@ const transporter = nodemailer.createTransport({
     user: process.env.TRANSPORTER_EMAIL,
     pass: process.env.EMAIL_PASSWORD,
   },
-  secure: true, // Use TLS
+  secure: true,
   tls: {
-    rejectUnauthorized: true, // Verify TLS/SSL certificate
+    rejectUnauthorized: true,
   },
 })
 
@@ -67,10 +67,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Validate input
     const validatedData = contactSchema.parse(req.body)
 
-    // Email options
     const mailOptions = {
       from: process.env.TRANSPORTER_EMAIL,
       to: process.env.BUSINESS_EMAIL,
@@ -79,7 +77,6 @@ export default async function handler(req, res) {
       replyTo: validatedData.email,
     }
 
-    // Send email
     await transporter.sendMail(mailOptions)
 
     return res.status(200).json({ message: 'Email sent successfully' })
@@ -90,7 +87,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: error.errors[0].message })
     }
 
-    // Check for specific nodemailer errors
     if (error.code === 'EAUTH') {
       console.error('Authentication error - check email credentials')
       return res.status(500).json({ error: 'Email service authentication failed' })
