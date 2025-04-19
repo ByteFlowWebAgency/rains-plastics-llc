@@ -40,11 +40,11 @@
           <div class="footer__info">
             <div class="footer__info-item q-mb-md">
               <h6 class="text-weight-medium q-mb-sm">Address:</h6>
-              <p>5919 Trussville Crossings Pkwy, Birmingham</p>
+              <p>873 Kings Cross Dr Wadsworth, OH, 44281-8902 United States</p>
             </div>
             <div class="footer__info-item q-mb-md">
               <h6 class="text-weight-medium q-mb-sm">Email:</h6>
-              <a href="mailto:Info@RainsplasticsINC.Com">Info@RainsplasticsINC.Com</a>
+              <a href="mailto:Info@RainsplasticsINC.Com">trains@neo.rr.com</a>
             </div>
             <div class="footer__info-item">
               <h6 class="text-weight-medium q-mb-sm">Phone:</h6>
