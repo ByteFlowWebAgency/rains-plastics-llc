@@ -23,7 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "nodemailer": "^6.9.9",
+    "nodemailer": "^6.10.1",
     "quasar": "^2.16.0",
     "sweetalert2": "^11.19.1",
     "vue": "^3.4.18",
@@ -41,8 +41,8 @@
     "globals": "^15.12.0",
     "postcss": "^8.4.14",
     "prettier": "^3.3.3",
-    "vue-eslint-parser": "^9.3.2",
-    "vite-plugin-checker": "^0.9.0"
+    "vite-plugin-checker": "^0.9.0",
+    "vue-eslint-parser": "^9.3.2"
   },
   "engines": {
     "node": ">=18.0.0",

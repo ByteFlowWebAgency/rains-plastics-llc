@@ -16,6 +16,15 @@
   ],
   "routes": [
     {
+      "src": "/api/contact",
+      "methods": ["POST"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST",
+        "Access-Control-Allow-Headers": "Content-Type, x-vercel-signature"
+      }
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/api/$1.js"
     },
@@ -30,19 +39,10 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "forms": {
-    "contact": {
-      "fields": [
-        { "name": "name", "type": "text", "required": true },
-        { "name": "email", "type": "email", "required": true },
-        { "name": "message", "type": "text", "required": true }
-      ],
-      "actions": [
-        {
-          "type": "email",
-          "to": ["trains@neo.rr.com"]
-        }
-      ]
+  "functions": {
+    "api/contact.js": {
+      "memory": 1024,
+      "maxDuration": 10
     }
   }
 }
