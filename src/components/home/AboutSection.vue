@@ -4,8 +4,8 @@
       <div class="row items-start q-col-gutter-xl">
         <div class="col-12 col-md-6">
           <div
-            class="image-grid"
             v-motion
+            class="image-grid"
             :initial="{ opacity: 0, x: -50 }"
             :enter="{ opacity: 1, x: 0, transition: { delay: 200, duration: 800 } }"
           >
@@ -26,8 +26,8 @@
         </div>
         <div class="col-12 col-md-6">
           <div
-            class="about-content"
             v-motion
+            class="about-content"
             :initial="{ opacity: 0, x: 50 }"
             :enter="{ opacity: 1, x: 0, transition: { delay: 400, duration: 800 } }"
           >

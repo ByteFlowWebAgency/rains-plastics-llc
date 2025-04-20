@@ -2,8 +2,8 @@
   <section id="services-section" class="services-section q-py-xl">
     <div class="container">
       <div
-        class="section-header text-center q-mb-xl"
         v-motion
+        class="section-header text-center q-mb-xl"
         :initial="{ opacity: 0, y: 50 }"
         :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 800 } }"
       >
@@ -16,8 +16,8 @@
         <div
           v-for="service in services"
           :key="service.id"
-          class="col-12 col-sm-6 col-md-4"
           v-motion
+          class="col-12 col-sm-6 col-md-4"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{
             opacity: 1,

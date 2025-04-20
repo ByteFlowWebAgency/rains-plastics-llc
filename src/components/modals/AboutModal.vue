@@ -4,7 +4,7 @@
       <q-card-section class="row items-center q-pb-none">
         <div class="text-h6">About Rains Plastics</div>
         <q-space />
-        <q-btn icon="close" flat round dense v-close-popup />
+        <q-btn v-close-popup icon="close" flat round dense />
       </q-card-section>
 
       <q-card-section class="q-pt-md">
@@ -46,7 +46,7 @@
       </q-card-section>
 
       <q-card-actions align="right" class="bg-white text-primary">
-        <q-btn flat label="Close" v-close-popup />
+        <q-btn v-close-popup flat label="Close" />
       </q-card-actions>
     </q-card>
   </q-dialog>

@@ -2,6 +2,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from '#q-app/wrappers'
+import { resolve } from 'path'
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -40,7 +41,7 @@ export default defineConfig((/* ctx */) => {
       vueRouterMode: 'history',
       publicPath: '/',
       distDir: 'dist/spa',
-      ignorePublicFolder: true,
+      ignorePublicFolder: false,
       minify: true,
       polyfillModulePreload: true,
 
@@ -48,7 +49,13 @@ export default defineConfig((/* ctx */) => {
       // env: {},
       // rawDefine: {}
 
-      // extendViteConf (viteConf) {},
+      extendViteConf(viteConf) {
+        viteConf.resolve.alias = {
+          ...viteConf.resolve.alias,
+          '@favicons': resolve(__dirname, './src/assets/favicons'),
+        }
+      },
+
       vitePlugins: [
         [
           'vite-plugin-checker',
@@ -70,6 +77,7 @@ export default defineConfig((/* ctx */) => {
             object: ['data'],
             'q-img': ['src'],
             'q-video': ['src', 'poster'],
+            link: ['href'],
           },
         },
       },

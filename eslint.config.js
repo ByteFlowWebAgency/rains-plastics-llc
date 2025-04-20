@@ -1,73 +1,66 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import pluginVue from 'eslint-plugin-vue'
-import pluginQuasar from '@quasar/app-vite/eslint'
-import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+const js = require('@eslint/js')
+const globals = require('globals')
+const vue = require('eslint-plugin-vue')
 
-export default [
-  {
-    /**
-     * Ignore the following files.
-     * Please note that pluginQuasar.configs.recommended() already ignores
-     * the "node_modules" folder for you (and all other Quasar project
-     * relevant folders and files).
-     *
-     * ESLint requires "ignores" key to be the only one in this object
-     */
-    // ignores: []
-  },
-
-  ...pluginQuasar.configs.recommended(),
+module.exports = [
   js.configs.recommended,
-
-  /**
-   * https://eslint.vuejs.org
-   *
-   * pluginVue.configs.base
-   *   -> Settings and rules to enable correct ESLint parsing.
-   * pluginVue.configs[ 'flat/essential']
-   *   -> base, plus rules to prevent errors or unintended behavior.
-   * pluginVue.configs["flat/strongly-recommended"]
-   *   -> Above, plus rules to considerably improve code readability and/or dev experience.
-   * pluginVue.configs["flat/recommended"]
-   *   -> Above, plus rules to enforce subjective community defaults to ensure consistency.
-   */
-  ...pluginVue.configs[ 'flat/essential' ],
-
   {
+    ignores: ['dist/**', '.quasar/**', 'node_modules/**'],
+  },
+  {
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-
       globals: {
         ...globals.browser,
-        ...globals.node, // SSR, Electron, config files
-        process: 'readonly', // process.env.*
-        ga: 'readonly', // Google Analytics
-        cordova: 'readonly',
-        Capacitor: 'readonly',
-        chrome: 'readonly', // BEX related
-        browser: 'readonly' // BEX related
-      }
+        ...globals.es2021,
+        ...globals.node,
+      },
     },
-
-    // add your custom rules here
     rules: {
       'prefer-promise-reject-errors': 'off',
-
-      // allow debugger during development only
-      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-    }
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    },
   },
-
   {
-    files: [ 'src-pwa/custom-service-worker.js' ],
+    files: ['**/*.vue'],
+    plugins: {
+      vue,
+    },
     languageOptions: {
       globals: {
-        ...globals.serviceworker
-      }
-    }
+        ...globals.browser,
+        ...globals.es2021,
+      },
+      parser: require('vue-eslint-parser'),
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      ...vue.configs.base.rules,
+      ...vue.configs['vue3-recommended'].rules,
+      'vue/multi-word-component-names': 'off',
+      'vue/attributes-order': [
+        'error',
+        {
+          order: [
+            'DEFINITION',
+            'LIST_RENDERING',
+            'CONDITIONALS',
+            'RENDER_MODIFIERS',
+            'GLOBAL',
+            ['UNIQUE', 'SLOT'],
+            'TWO_WAY_BINDING',
+            'OTHER_DIRECTIVES',
+            'OTHER_ATTR',
+            'EVENTS',
+            'CONTENT',
+          ],
+          alphabetical: false,
+        },
+      ],
+      'vue/comment-directive': 'off',
+    },
   },
-
-  prettierSkipFormatting
 ]
