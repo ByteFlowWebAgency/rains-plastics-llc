@@ -77,7 +77,6 @@ export default defineConfig((/* ctx */) => {
             object: ['data'],
             'q-img': ['src'],
             'q-video': ['src', 'poster'],
-            link: ['href'],
           },
         },
       },
