@@ -3,8 +3,8 @@
     <div class="container">
       <!-- Section Header -->
       <div
-        class="section-header text-center q-mb-xl"
         v-motion
+        class="section-header text-center q-mb-xl"
         :initial="{ opacity: 0, y: 50 }"
         :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 800 } }"
       >
@@ -19,8 +19,8 @@
       <div class="row q-col-gutter-xl">
         <!-- Product Card 1 -->
         <div
-          class="col-12 col-md-6 col-lg-3"
           v-motion
+          class="col-12 col-md-6 col-lg-3"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 300, duration: 800 } }"
         >
@@ -35,8 +35,8 @@
 
         <!-- Product Card 2 -->
         <div
-          class="col-12 col-md-6 col-lg-3"
           v-motion
+          class="col-12 col-md-6 col-lg-3"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 400, duration: 800 } }"
         >
@@ -53,8 +53,8 @@
 
         <!-- Product Card 3 -->
         <div
-          class="col-12 col-md-6 col-lg-3"
           v-motion
+          class="col-12 col-md-6 col-lg-3"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 500, duration: 800 } }"
         >
@@ -69,8 +69,8 @@
 
         <!-- Product Card 4 -->
         <div
-          class="col-12 col-md-6 col-lg-3"
           v-motion
+          class="col-12 col-md-6 col-lg-3"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 600, duration: 800 } }"
         >
@@ -86,8 +86,8 @@
 
       <!-- View All Products Button -->
       <div
-        class="text-center q-mt-xl"
         v-motion
+        class="text-center q-mt-xl"
         :initial="{ opacity: 0, y: 20 }"
         :enter="{ opacity: 1, y: 0, transition: { delay: 700, duration: 500 } }"
       >

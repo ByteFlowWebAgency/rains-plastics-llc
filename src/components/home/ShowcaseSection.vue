@@ -3,8 +3,8 @@
     <div class="showcase-container">
       <!-- Left Content -->
       <div
-        class="content-left"
         v-motion
+        class="content-left"
         :initial="{ opacity: 0, x: -50 }"
         :enter="{ opacity: 1, x: 0, transition: { delay: 200, duration: 800 } }"
       >
@@ -29,8 +29,8 @@
 
       <!-- Right Image -->
       <div
-        class="content-right"
         v-motion
+        class="content-right"
         :initial="{ opacity: 0, x: 50 }"
         :enter="{ opacity: 1, x: 0, transition: { delay: 400, duration: 800 } }"
       >

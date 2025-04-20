@@ -4,8 +4,8 @@
     <section class="page-header">
       <div class="container">
         <div
-          class="header-content text-center"
           v-motion
+          class="header-content text-center"
           :initial="{ opacity: 0, y: 50 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 800 } }"
         >
@@ -22,8 +22,8 @@
       <div class="container">
         <!-- Filters -->
         <div
-          class="filters q-mb-xl"
           v-motion
+          class="filters q-mb-xl"
           :initial="{ opacity: 0, y: 20 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 300, duration: 500 } }"
         >
@@ -59,8 +59,8 @@
           <div
             v-for="(product, index) in filteredProducts"
             :key="product.id"
-            class="col-12 col-md-6 col-lg-4"
             v-motion
+            class="col-12 col-md-6 col-lg-4"
             :initial="{ opacity: 0, y: 50 }"
             :enter="{ opacity: 1, y: 0, transition: { delay: 300 + index * 100, duration: 800 } }"
           >
@@ -92,12 +92,12 @@
         <q-card-section class="row items-center q-pb-none">
           <div class="text-h6">{{ selectedProduct?.name }}</div>
           <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
+          <q-btn v-close-popup icon="close" flat round dense />
         </q-card-section>
 
         <q-separator />
 
-        <q-card-section class="q-pt-md" v-if="selectedProduct">
+        <q-card-section v-if="selectedProduct" class="q-pt-md">
           <div class="row q-col-gutter-xl">
             <div class="col-12 col-md-6">
               <q-img :src="selectedProduct.image" class="rounded-borders" style="height: 400px" />
@@ -123,9 +123,9 @@
                 <h4 class="text-h6 q-mb-md">Technical Specifications</h4>
                 <div class="row q-col-gutter-md">
                   <div
-                    class="col-6"
                     v-for="(spec, key) in selectedProduct.specifications"
                     :key="key"
+                    class="col-6"
                   >
                     <div class="text-caption text-grey-7">{{ key }}</div>
                     <div class="text-subtitle1">{{ spec }}</div>

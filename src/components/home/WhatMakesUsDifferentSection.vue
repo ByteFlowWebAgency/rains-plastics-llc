@@ -132,7 +132,7 @@ const navigateToContact = async () => {
     background: #b01e23;
 
     &:hover {
-      background: darken(#b01e23, 10%);
+      background: #901218;
     }
 
     @media (max-width: 599px) {

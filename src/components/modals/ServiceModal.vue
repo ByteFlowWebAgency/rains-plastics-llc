@@ -1,17 +1,17 @@
 <template>
   <q-dialog
     :model-value="modelValue"
-    @update:model-value="$emit('update:modelValue', $event)"
     persistent
     maximized
     transition-show="slide-up"
     transition-hide="slide-down"
+    @update:model-value="$emit('update:modelValue', $event)"
   >
     <q-card class="service-modal">
       <q-card-section class="row items-center q-pb-none">
         <div class="text-h6">{{ service?.title }}</div>
         <q-space />
-        <q-btn icon="close" flat round dense v-close-popup />
+        <q-btn v-close-popup icon="close" flat round dense />
       </q-card-section>
 
       <q-card-section class="q-pt-sm">
@@ -75,7 +75,7 @@
       </q-card-section>
 
       <q-card-actions align="right" class="q-pa-md">
-        <q-btn flat label="Close" color="primary" v-close-popup />
+        <q-btn v-close-popup flat label="Close" color="primary" />
       </q-card-actions>
     </q-card>
   </q-dialog>

@@ -31,11 +31,11 @@
         <!-- Navigation -->
         <div class="row no-wrap items-center full-width justify-between gt-sm">
           <div class="nav-links">
-            <q-btn flat no-caps @click="navigateTo('/', 'hero')" label="Home" />
-            <q-btn flat no-caps @click="navigateTo('/', 'about')" label="About us" />
-            <q-btn flat no-caps @click="navigateTo('/', 'services')" label="Services" />
-            <q-btn flat no-caps @click="navigateTo('/', 'products')" label="Products" />
-            <q-btn flat no-caps @click="navigateTo('/', 'contact')" label="Contact" />
+            <q-btn flat no-caps label="Home" @click="navigateTo('/', 'hero')" />
+            <q-btn flat no-caps label="About us" @click="navigateTo('/', 'about')" />
+            <q-btn flat no-caps label="Services" @click="navigateTo('/', 'services')" />
+            <q-btn flat no-caps label="Products" @click="navigateTo('/', 'products')" />
+            <q-btn flat no-caps label="Contact" @click="navigateTo('/', 'contact')" />
           </div>
 
           <!-- Social Media Icons -->
@@ -71,19 +71,19 @@
     <!-- Mobile drawer -->
     <q-drawer v-model="drawerOpen" bordered class="bg-white" side="right">
       <q-list>
-        <q-item clickable v-ripple @click="navigateTo('/', 'hero')">
+        <q-item v-ripple clickable @click="navigateTo('/', 'hero')">
           <q-item-section>Home</q-item-section>
         </q-item>
-        <q-item clickable v-ripple @click="navigateTo('/', 'about')">
+        <q-item v-ripple clickable @click="navigateTo('/', 'about')">
           <q-item-section>About us</q-item-section>
         </q-item>
-        <q-item clickable v-ripple @click="navigateTo('/', 'services')">
+        <q-item v-ripple clickable @click="navigateTo('/', 'services')">
           <q-item-section>Services</q-item-section>
         </q-item>
-        <q-item clickable v-ripple @click="navigateTo('/', 'products')">
+        <q-item v-ripple clickable @click="navigateTo('/', 'products')">
           <q-item-section>Products</q-item-section>
         </q-item>
-        <q-item clickable v-ripple @click="navigateTo('/', 'contact')">
+        <q-item v-ripple clickable @click="navigateTo('/', 'contact')">
           <q-item-section>Contact</q-item-section>
         </q-item>
 
