@@ -1,19 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist/spa"
-      }
-    }
-  ],
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": ".vercel/output/static",
   "routes": [
     {
       "src": "/api/contact",
@@ -26,14 +14,14 @@
     },
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1.js"
+      "dest": "/api/$1"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/spa/index.html"
+      "dest": "/index.html"
     }
   ],
   "env": {

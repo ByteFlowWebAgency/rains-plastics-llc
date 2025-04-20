@@ -12,7 +12,7 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "start": "quasar serve dist/spa --history",
-    "vercel-build": "npm install && npm run build && mkdir -p .vercel/output/static && cp -r dist/spa/* .vercel/output/static/ && cp -r src/assets .vercel/output/static/",
+    "vercel-build": "npm install && quasar build && mkdir -p .vercel/output/static && cp -r dist/spa/* .vercel/output/static/ && cp -r src/assets .vercel/output/static/ && cp -r api .vercel/output/",
     "vercel-dev": "npm install && npm run dev",
     "api": "node server.cjs",
     "dev:all": "concurrently \"npm run dev\" \"npm run api\""
