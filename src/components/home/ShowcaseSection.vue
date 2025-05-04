@@ -66,10 +66,11 @@ const scrollToContact = () => {
   }
 
   @media (max-width: 599px) {
-    margin: 2rem 1rem;
-    border-radius: 12px;
-    overflow: hidden;
-    max-width: 400px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   }
 
   .showcase-container {
@@ -109,13 +110,19 @@ const scrollToContact = () => {
     flex: 0 0 50%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 1023px) {
       flex: 0 0 100%;
       width: 100%;
-      display: block;
+      display: flex;
       order: 1;
       overflow: visible;
+      justify-content: center;
+      align-items: center;
+      background: none;
     }
 
     .showcase-image {
@@ -128,12 +135,22 @@ const scrollToContact = () => {
 
       @media (max-width: 1023px) {
         position: relative;
-        height: auto;
         width: 100%;
-        aspect-ratio: 4/3;
-        object-fit: cover;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
+        height: auto;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        margin: 0 auto;
+        display: block;
+      }
+      @media (max-width: 599px) {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 8px 8px 0 0;
       }
     }
   }
@@ -149,20 +166,25 @@ const scrollToContact = () => {
     z-index: 2;
 
     @media (max-width: 1200px) {
-      padding: 5rem 4rem;
+      padding: 4rem 3rem;
     }
 
     @media (max-width: 1023px) {
       flex: 0 0 100%;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 2rem;
+      padding-right: 70px;
       order: 2;
       background: #000;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      align-items: center;
+      text-align: center;
     }
 
     @media (max-width: 599px) {
-      padding: 1.5rem;
+      padding: 2rem 1rem 1.5rem 1rem;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -172,6 +194,7 @@ const scrollToContact = () => {
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
   }
 
@@ -184,14 +207,17 @@ const scrollToContact = () => {
     max-width: 550px;
 
     @media (max-width: 1023px) {
-      font-size: 1.75rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
       max-width: 100%;
     }
 
     @media (max-width: 599px) {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      text-align: center;
     }
   }
 
@@ -203,11 +229,18 @@ const scrollToContact = () => {
     max-width: 500px;
 
     @media (max-width: 1023px) {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
       text-align: center;
       opacity: 0.8;
       max-width: 100%;
+    }
+
+    @media (max-width: 599px) {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      text-align: center;
     }
   }
 
@@ -216,7 +249,7 @@ const scrollToContact = () => {
     padding: 0 2rem;
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 12px;
+    border-radius: 8px;
     background: #b01e23;
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -228,10 +261,19 @@ const scrollToContact = () => {
 
     @media (max-width: 1023px) {
       width: 100%;
+      max-width: 300px;
       height: 48px;
       font-size: 0.95rem;
       align-self: center;
       margin: 0;
+    }
+
+    @media (max-width: 599px) {
+      height: 44px;
+      font-size: 0.9rem;
+      max-width: 100%;
+      align-self: center;
+      margin-top: 0.5rem;
     }
   }
 }

@@ -95,6 +95,7 @@ const navigateTo = async (path, section = null) => {
   @media (max-width: 1023px) {
     min-height: 100vh;
     padding: 64px 2rem 2rem;
+    padding-right: 55px;
     background: url('../../assets/images/backgrounds/homepage-banner.gif') no-repeat center center;
     background-size: cover;
     display: flex;
